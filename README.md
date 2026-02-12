@@ -31,6 +31,55 @@ A production-quality MERN stack application that detects fake or suspicious job 
 - Azure AI Vision (OCR)
 - Rule-based fraud detection
 
+## 🚀 Quick Start
+
+### 1. Install Dependencies
+```bash
+# Install backend dependencies
+npm install
+
+# Install frontend dependencies
+cd client
+npm install
+cd ..
+```
+
+### 2. Setup Environment
+```bash
+# Copy environment template
+copy .env.example .env
+# Edit .env with your MongoDB URI and JWT secret
+```
+
+### 3. Start MongoDB
+```bash
+# Windows
+net start MongoDB
+
+# Mac/Linux
+mongod
+
+# Or use MongoDB Atlas (cloud)
+```
+
+### 4. Start the Application
+```bash
+# Terminal 1 - Backend
+node server/server.js
+
+# Terminal 2 - Frontend
+cd client
+npm start
+```
+
+### 5. Open Browser
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5000
+
+**📖 For detailed instructions, see [HOW_TO_START.md](HOW_TO_START.md)**
+
+---
+
 ## Installation
 
 ### Prerequisites

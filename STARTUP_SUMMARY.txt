@@ -1,0 +1,199 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║          AI-POWERED FAKE JOB DETECTION SYSTEM                        ║
+║                    STARTUP GUIDE                                     ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+📋 PREREQUISITES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Node.js (v16+)          → https://nodejs.org/
+✅ MongoDB                 → Local or MongoDB Atlas
+✅ Code Editor             → VS Code recommended
+
+
+🚀 QUICK START (5 MINUTES)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: Install Dependencies (2 min)
+────────────────────────────────────
+  npm install
+  cd client
+  npm install
+  cd ..
+
+
+STEP 2: Setup Environment (1 min)
+──────────────────────────────────
+  copy .env.example .env
+  
+  Edit .env:
+  ┌─────────────────────────────────────────────────┐
+  │ MONGODB_URI=mongodb://localhost:27017/job-db   │
+  │ JWT_SECRET=your_secret_key                      │
+  │ USE_MOCK_AI=true                                │
+  └─────────────────────────────────────────────────┘
+
+
+STEP 3: Start MongoDB (if local)
+─────────────────────────────────
+  Windows:  net start MongoDB
+  Mac:      mongod
+
+
+STEP 4: Start Backend (Terminal 1)
+───────────────────────────────────
+  node server/server.js
+  
+  ✅ You should see:
+  🚀 Server running on port 5000
+  ✅ MongoDB Connected
+
+
+STEP 5: Start Frontend (Terminal 2)
+────────────────────────────────────
+  cd client
+  npm start
+  
+  ✅ You should see:
+  Compiled successfully!
+  Local: http://localhost:3000
+
+
+STEP 6: Open Browser
+─────────────────────
+  http://localhost:3000
+
+
+🎯 FIRST TIME USAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Register Account
+   ├─ Click "Sign up"
+   ├─ Enter name, email, password
+   └─ Click "Create Account"
+
+2. Analyze Job
+   ├─ Click "Analyze Job"
+   ├─ Paste job description OR upload image
+   └─ Click "Analyze Job Posting"
+
+3. View Results
+   ├─ See risk score (0-100)
+   ├─ Status: Legit / Suspicious / Scam
+   └─ Detailed reasons
+
+4. Check History
+   └─ Click "History" to see all analyses
+
+
+📊 PROJECT STRUCTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ai-job-fraud-detector/
+  │
+  ├── server/              Backend (Node.js/Express)
+  │   ├── config/         Configuration
+  │   ├── middleware/     Authentication
+  │   ├── models/         Database models
+  │   ├── routes/         API endpoints
+  │   ├── services/       AI & fraud detection
+  │   └── server.js       Entry point
+  │
+  ├── client/             Frontend (React)
+  │   ├── public/        Static files
+  │   └── src/
+  │       ├── components/ UI components
+  │       ├── pages/      Page components
+  │       ├── context/    Auth context
+  │       └── services/   API calls
+  │
+  ├── uploads/           Uploaded images
+  ├── .env              Environment variables
+  └── package.json      Dependencies
+
+
+🔧 TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ MongoDB Connection Error
+   → Start MongoDB: net start MongoDB
+
+❌ Port Already in Use
+   → Change PORT in .env to 5001
+
+❌ Module Not Found
+   → Run: npm install
+
+❌ React Not Starting
+   → cd client && npm install
+
+
+🌐 API ENDPOINTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Authentication:
+  POST   /api/auth/register    Register user
+  POST   /api/auth/login       Login user
+  GET    /api/auth/me          Get current user
+
+Job Analysis:
+  POST   /api/analyze-job      Analyze job (auth required)
+  GET    /api/history          Get history (auth required)
+  DELETE /api/analysis/:id     Delete analysis (auth required)
+
+Health:
+  GET    /api/health           API status
+
+
+🎨 FEATURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ User Authentication (JWT)
+✅ Text Analysis
+✅ Image Upload & OCR
+✅ Rule-Based Detection (60%)
+✅ AI-Powered Analysis (40%)
+✅ Risk Scoring (0-100)
+✅ Explainable Results
+✅ Analysis History
+✅ Modern UI with Animations
+
+
+📚 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📖 HOW_TO_START.md          Detailed startup guide
+📖 README.md                Project overview
+📖 .env.example             Environment template
+📖 GIT_PUSH_INSTRUCTIONS.md GitHub push guide
+
+
+✅ STARTUP CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ Node.js installed
+□ MongoDB installed/configured
+□ Dependencies installed (npm install)
+□ .env file created
+□ MongoDB running
+□ Backend starts (port 5000)
+□ Frontend compiles (port 3000)
+□ Can access http://localhost:3000
+□ Can register/login
+□ Can analyze jobs
+
+
+🎉 READY TO GO!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Your AI-Powered Fake Job Detection System is ready!
+
+Frontend: http://localhost:3000
+Backend:  http://localhost:5000
+
+Happy coding! 🚀
+
+╔══════════════════════════════════════════════════════════════════════╗
+║  For detailed instructions, see HOW_TO_START.md                      ║
+╚══════════════════════════════════════════════════════════════════════╝
