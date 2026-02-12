@@ -21,7 +21,9 @@ export const AuthProvider = ({ children }) => {
       if (token) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         try {
-          const response = await axios.get('/api/auth/me');
+          // Use full API URL from environment variable
+          const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+          const response = await axios.get(`${API_URL}/api/auth/me`);
           setUser(response.data.user);
         } catch (error) {
           console.error('Error fetching user:', error);
@@ -36,7 +38,8 @@ export const AuthProvider = ({ children }) => {
   }, [token]);
 
   const login = async (email, password) => {
-    const response = await axios.post('/api/auth/login', { email, password });
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+    const response = await axios.post(`${API_URL}/api/auth/login`, { email, password });
     const { token, user } = response.data;
     
     localStorage.setItem('token', token);
@@ -48,7 +51,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (name, email, password) => {
-    const response = await axios.post('/api/auth/register', { name, email, password });
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+    const response = await axios.post(`${API_URL}/api/auth/register`, { name, email, password });
     const { token, user } = response.data;
     
     localStorage.setItem('token', token);

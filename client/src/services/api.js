@@ -1,7 +1,10 @@
 import axios from "axios";
 
+// Use environment variable for API URL, fallback to localhost for development
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 const api = axios.create({
-  baseURL: "https://ai-job-fraud-detector.onrender.com/api",
+  baseURL: API_BASE_URL,
 });
 
 api.interceptors.request.use(
@@ -27,7 +30,7 @@ api.interceptors.response.use(
 );
 
 export const analyzeJob = async (formData) => {
-  const response = await api.post("/analyze-job", formData, {
+  const response = await api.post("/api/analyze-job", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -36,17 +39,17 @@ export const analyzeJob = async (formData) => {
 };
 
 export const getHistory = async (page = 1, limit = 10) => {
-  const response = await api.get(`/history?page=${page}&limit=${limit}`);
+  const response = await api.get(`/api/history?page=${page}&limit=${limit}`);
   return response.data;
 };
 
 export const getAnalysis = async (id) => {
-  const response = await api.get(`/analysis/${id}`);
+  const response = await api.get(`/api/analysis/${id}`);
   return response.data;
 };
 
 export const deleteAnalysis = async (id) => {
-  const response = await api.delete(`/analysis/${id}`);
+  const response = await api.delete(`/api/analysis/${id}`);
   return response.data;
 };
 
