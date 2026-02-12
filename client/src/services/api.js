@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+console.log("API URL:", process.env.REACT_APP_API_URL);
+
+
 // Production backend URL (Render)
 const API_BASE_URL =
   process.env.REACT_APP_API_URL ||
