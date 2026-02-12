@@ -17,15 +17,15 @@ const Dashboard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await getHistory(1, 5);
-      const analyses = response.data.analyses;
-      setRecentAnalyses(analyses);
+      const response = await getHistory(1, 100);
+      const allAnalyses = response.data.analyses;
+      setRecentAnalyses(allAnalyses.slice(0, 5));
 
-      // Calculate stats
+      // Calculate stats from all analyses
       const total = response.data.pagination.total;
-      const legit = analyses.filter(a => a.status === 'Likely Legit').length;
-      const suspicious = analyses.filter(a => a.status === 'Suspicious').length;
-      const fake = analyses.filter(a => a.status === 'Potential Scam').length;
+      const legit = allAnalyses.filter(a => a.status === 'Likely Legit').length;
+      const suspicious = allAnalyses.filter(a => a.status === 'Suspicious').length;
+      const fake = allAnalyses.filter(a => a.status === 'Potential Scam').length;
 
       setStats({ total, legit, suspicious, fake });
     } catch (error) {

@@ -30,7 +30,7 @@ api.interceptors.response.use(
 );
 
 export const analyzeJob = async (formData) => {
-  const response = await api.post("/api/analyze-job", formData, {
+  const response = await api.post("/analyze-job", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -39,17 +39,17 @@ export const analyzeJob = async (formData) => {
 };
 
 export const getHistory = async (page = 1, limit = 10) => {
-  const response = await api.get(`/api/history?page=${page}&limit=${limit}`);
+  const response = await api.get(`/history?page=${page}&limit=${limit}`);
   return response.data;
 };
 
 export const getAnalysis = async (id) => {
-  const response = await api.get(`/api/analysis/${id}`);
+  const response = await api.get(`/analysis/${id}`);
   return response.data;
 };
 
 export const deleteAnalysis = async (id) => {
-  const response = await api.delete(`/api/analysis/${id}`);
+  const response = await api.delete(`/analysis/${id}`);
   return response.data;
 };
 

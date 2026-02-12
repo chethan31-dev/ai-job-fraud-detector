@@ -34,6 +34,7 @@ const History = () => {
       fetchHistory(pagination.page);
     } catch (error) {
       console.error('Error deleting analysis:', error);
+      alert('Failed to delete analysis. Please try again.');
     }
   };
 

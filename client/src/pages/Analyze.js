@@ -15,7 +15,7 @@ const Analyze = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!jobText && !selectedImage) {
+    if (!jobText?.trim() && !selectedImage) {
       setError('Please provide job description text or upload an image');
       return;
     }
@@ -26,7 +26,7 @@ const Analyze = () => {
 
     try {
       const formData = new FormData();
-      if (jobText) formData.append('jobText', jobText);
+      if (jobText?.trim()) formData.append('jobText', jobText);
       if (selectedImage) formData.append('image', selectedImage);
 
       const response = await analyzeJob(formData);
